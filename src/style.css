@@ -1,0 +1,10 @@
+/* */
+.bills {
+  position: relative;
+  width: 150px;
+  height: 70px;
+  left: 50px;
+  top: 20px;
+  margin-left: -125px;
+
+}
