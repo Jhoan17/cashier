@@ -15,11 +15,19 @@
   <body class=" align-items-center">
     <div class="col-auto p-5 text-center">
       <img src="./assets/img/cajero.webp" /><hr>
-      <p><input type="number" id="moneyAmount"><input type="button" id="btnWithdrawals" value="retirrar"></p>
+      
       <div class="row conteiner">
         <div class="col">
           <h1>
-            Tu dinero <small id="puntosJugador" class="moneySmalls">$ 0</small>
+            Dinero disponible <small id="puntosJugador" class="moneyTotalSmalls">$ 0</small>
+          </h1>
+        </div>
+      </div>
+      <p><input type="number" id="moneyAmount"><input type="button" id="btnWithdrawals" value="retirrar"></p>
+      <div class="row conteiner">
+        <div class="col">
+          <h1 id="h1Money">
+             
           </h1>
           <div id="jugador-cartas" class="divMoney">
             <!-- <img src="assets/img/50.png" class="bills" alt="" /> -->

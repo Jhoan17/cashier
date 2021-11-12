@@ -1,7 +1,8 @@
 const body = document.querySelector('body'),
         divMoney = document.querySelector('.divMoney'),
-        moneySmalls = document.querySelector('.moneySmalls'),
-        btnWithdrawals = document.querySelector('#btnWithdrawals');
+        moneyTotalSmalls = document.querySelector('.moneyTotalSmalls'),
+        btnWithdrawals = document.querySelector('#btnWithdrawals'),
+        h1Money = document.querySelector('#h1Money');
 
 class Bill{
     constructor(value,amount){
@@ -14,7 +15,6 @@ class Bill{
         let notAmount = false;
         
         for(let bill of bills){
-            console.log(money,sumCashier);
             if(money <= sumCashier){
                 if(money > 0 ){
                     let div = Math.floor(money/bill.value)
@@ -32,7 +32,9 @@ class Bill{
                             for(let p = 0; p<papers/bill.value; p++){
                             
                             if(seedMoney == true){
-                                moneySmalls.innerHTML = '$ '+money;
+                                let balance =  sumCashier - money;
+                                moneyTotalSmalls.innerHTML = '$ '+ balance;
+                                h1Money.innerHTML = `Dinero que retiraste <small id="puntosJugador" class="moneySmalls">$ ${money}</small>`;
                                 seedMoney = false;
                             }
 
@@ -55,7 +57,7 @@ class Bill{
             
         }
         if(notAmount==true){
-            moneySmalls.innerHTML = '$ '+money;
+            moneyTotalSmalls.innerHTML = '$ '+money;
             divMoney.append(`No hay monto suficiente para retirar la cantidad solicitada, por favor retire un valor menor de $ ${sumCashier}`);
         }else{
             return bills;
@@ -88,11 +90,15 @@ btnWithdrawals.addEventListener('click', ()=>{
     divMoney.innerHTML = '';
     
     let cashier = new Bill();
-    // console.log(cashier.sumCashier());
+    divMoney.innerHTML= cashier.sumCashier();
+
     console.log(cashier.withdrawals(moneyAmount.value,cashier.sumCashier()));
     moneyAmount.value = '';
     
 });
+
+let amountTotal = new Bill();
+moneyTotalSmalls.innerHTML = '$ '+amountTotal.sumCashier();
 
 export{
     Bill
