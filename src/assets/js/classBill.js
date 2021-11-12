@@ -57,7 +57,7 @@ class Bill{
             
         }
         if(notAmount==true){
-            moneyTotalSmalls.innerHTML = '$ '+money;
+            moneySmalls.innerHTML = '$ '+money;
             divMoney.append(`No hay monto suficiente para retirar la cantidad solicitada, por favor retire un valor menor de $ ${sumCashier}`);
         }else{
             return bills;
